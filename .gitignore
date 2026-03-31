@@ -1,0 +1,30 @@
+# Sensitive
+.env
+.env.*
+*.env
+credentials.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backups
+*.bak
+*.tmp
+*~
+
+# Large binaries
+*.zip
+*.tar.gz
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Archives
+ARCHIVE/COLD/
+

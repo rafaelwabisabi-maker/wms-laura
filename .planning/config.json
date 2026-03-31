@@ -1,0 +1,6 @@
+{
+  "project": "wms-laura",
+  "type": "general",
+  "interactive": true,
+  "features": ["planning", "verification"]
+}
