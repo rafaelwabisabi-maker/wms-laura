@@ -5,6 +5,7 @@
 | Date | File | Type | Source | Status |
 |---|---|---|---|---|
 | 2026-04-28 | [leo-operations-interview.md](2026-04-28-leo-operations-interview.md) | client_interview | Leo (Fast Action) WhatsApp | WIRED |
+| 2026-04-28 | [leo-followup-answers.md](2026-04-28-leo-followup-answers.md) | client_interview_followup | Leo + research Up Seller | WIRED |
 
 ---
 
