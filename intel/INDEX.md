@@ -7,6 +7,7 @@
 | 2026-04-28 | [leo-operations-interview.md](2026-04-28-leo-operations-interview.md) | client_interview | Leo (Fast Action) WhatsApp | WIRED |
 | 2026-04-28 | [leo-followup-answers.md](2026-04-28-leo-followup-answers.md) | client_interview_followup | Leo + research Up Seller | WIRED |
 | 2026-04-28 | [code-review-synthesis.md](2026-04-28-code-review-synthesis.md) | code_review_synthesis | 5 parallel ce-* agents | WIRED |
+| 2026-04-29 | [phased-plan.md](2026-04-29-phased-plan.md) | phased_execution_plan | Mythos + Codex Max + Rafael decision | WIRED — ACTIVE |
 
 ---
 
