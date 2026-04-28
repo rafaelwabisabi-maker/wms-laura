@@ -18,7 +18,6 @@ tags: [upseller, nfe, fill-batch, sku, marketplace, promo-calendar]
 
 > Sequência da [primeira entrevista](2026-04-28-leo-operations-interview.md) — respostas dadas no mesmo dia, à tarde.
 
----
 
 ## 1. ✅ Up Seller — o que é
 
@@ -47,7 +46,6 @@ tags: [upseller, nfe, fill-batch, sku, marketplace, promo-calendar]
 - ✅ Plano A confirmado: integração direta com cada marketplace (Shopee feito, ML/TikTok/Amazon próximos)
 - ⚠️ Risco oculto: Up Seller faz **sync de estoque** entre marketplaces. Se o WMS deduz estoque, mas Up Seller também sincroniza, podemos ter conflito → **precisa investigar com Leo se Up Seller atualmente está controlando estoque ou só etiquetas**
 
----
 
 ## 2. ⏳ NF-e XML — pendente confirmação com Lucas
 
@@ -58,7 +56,6 @@ tags: [upseller, nfe, fill-batch, sku, marketplace, promo-calendar]
 
 **Próxima ação:** aguardar resposta do Lucas. Se confirmar XML → priorizar feature de import.
 
----
 
 ## 3. 📅 Calendário de promoções
 
@@ -87,7 +84,6 @@ tags: [upseller, nfe, fill-batch, sku, marketplace, promo-calendar]
 - Promo "X.X" tipicamente dobra o volume diário (1.500 → 3.000+ pedidos)
 - **Recomendação:** rodar piloto Shopee paralelo ao CSV até semana antes do 6/6, depois desligar o CSV
 
----
 
 ## 4. ✅ Fill Batch — Leo APROVOU e quer urgentemente
 
@@ -111,7 +107,6 @@ tags: [upseller, nfe, fill-batch, sku, marketplace, promo-calendar]
 - Sistema preenche C1P1...C1P18 + R1CH1...R1CH12 = 30 posições com 1 palete cada
 - Tudo em 1 transação. 1 movimentação por posição (audit trail completa).
 
----
 
 ## 5. 📝 SKU mapping — quem cria
 
@@ -133,7 +128,6 @@ tags: [upseller, nfe, fill-batch, sku, marketplace, promo-calendar]
 - Tabela `MarketplaceSkuMapping` (já planejada) é OBRIGATÓRIA
 - UI deve permitir ver "este produto físico está com SKU X no Shopee, Y no ML, Z no TikTok"
 
----
 
 ## 6. ❌ Etiqueta interna do produto — não existe
 
@@ -151,7 +145,6 @@ tags: [upseller, nfe, fill-batch, sku, marketplace, promo-calendar]
 - Etiqueta física opcional na caixa quando recebe mercadoria
 - Pega quando: Leo decidir padronizar (provavelmente depois do 11.11)
 
----
 
 ## 📊 Atualização do mapa do armazém
 
@@ -166,7 +159,6 @@ Leo enviou novo Excel ([MAPA ESTOQUE (2).xlsx](file:///Users/apple/Downloads/MAP
 
 **Status:** ✅ migrado em produção (2026-04-28, backup em `/data/wms-backup-pre-floor.db`)
 
----
 
 ## 🎯 Backlog atualizado pós-respostas
 
@@ -195,7 +187,6 @@ Leo enviou novo Excel ([MAPA ESTOQUE (2).xlsx](file:///Users/apple/Downloads/MAP
 | 7 | NF-e XML import | Q2 — Leo confirmar com Lucas |
 | 8 | Internal product code | Q6 — Leo decidir padronizar (não agora) |
 
----
 
 ## 🔗 Links úteis
 
