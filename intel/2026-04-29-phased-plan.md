@@ -28,7 +28,6 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 4. **Hardening do que tá no ar > construir mais.** Laura usa hoje. Proteger primeiro.
 5. **Backup automatizado é não-negociável.** Já feito (GitHub) + a fazer (VPS-local).
 
----
 
 ## FASE 0 — STABILIZE (esta semana, ~2-3h)
 
@@ -49,11 +48,10 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 **Não está nessa fase (justificativa):**
 - ❌ Worker async webhook → Shopee não tá live, 1500 pedidos/dia ≠ 100/sec
 - ❌ `deploy.sh` + rollback orquestrado → bash de 3 linhas resolve, 1 dev, 1 deploy/semana
-- ❌ Atomic conditional updateMany → SQLite single-writer + 1 CSV/dia = race impossível hoje
+- ❌ Atomic conditional updateMany → SQLite single-writer + import CSV em batch (não rajada de webhooks) = race effectively zero hoje
 - ❌ Baseline migration formal → "fresh deploy" é hipotético; container atual roda
 - ❌ Tests → código em prod há meses sem bug; tests são insurance, não fogo
 
----
 
 ## FASE 1 — ENTREGA O QUE LEO PEDIU (semana 2, ~6-8h)
 
@@ -76,7 +74,6 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 - Reference: `BULK:[uuid]` em todas movements para audit + reversão fácil
 - Erro = rollback total da transação
 
----
 
 ## FASE 2 — POLISH PRÉ-PROMOÇÃO 6/6 (semana 3-4, ~4h)
 
@@ -93,7 +90,6 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 
 **Total: ~4-6h dependendo de 2.5.**
 
----
 
 ## FASE 3 — DEPOIS DO 6/6 (junho, ~2-3 dias)
 
@@ -106,7 +102,6 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 | Se não: continuar CSV como canal principal | Sem mudança |
 | Conversa com Leo: vale a pena Shopee API automation? | Ele decide |
 
----
 
 ## FASE 4 — SHOPEE GO-LIVE (só se Leo pedir, ~5 dias)
 
@@ -126,7 +121,6 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 
 **Total: ~3 dias FOCADOS.** Só depois disso, **merge controlado, atrás de feature flag, em UMA loja teste, monitorado por 2 semanas.**
 
----
 
 ## FASE 5 — EVOLUÇÃO MULTI-CANAL (Q3 2026 — só se justificar)
 
@@ -140,7 +134,6 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 | TikTok Shop integration | Volume baixo, lower priority |
 | Amazon SP-API | Mais complexo, plans not active |
 
----
 
 ## FASE 6 — PRODUCTIZAÇÃO (só se SOL Business #5 ativar)
 
@@ -155,7 +148,6 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 - SOC2-grade audit trail
 - LGPD/GDPR compliance docs
 
----
 
 ## OVERKILL — não fazer mesmo se sobrar tempo
 
@@ -172,7 +164,6 @@ tags: [phases, execution, anti-overengineering, shopee-deferred, bulk-fill]
 | Structured logging / log aggregation | Console.log + docker logs basta para 1 servidor |
 | Monitoring (Sentry, Datadog) | $$$ + complexidade. /api/health + cron alert = 80% disso por $0 |
 
----
 
 ## Mapa rápido — onde tá tudo
 
@@ -202,7 +193,6 @@ wms-laura/
 
 **Reverter qualquer fix:** `git revert <commit>` ou `git checkout <prior-commit> -- path/file`. Backup garantido em 2 lugares (Mac + GitHub) + Guardian sync para VPS.
 
----
 
 ## Decisão estratégica
 
@@ -213,3 +203,5 @@ wms-laura/
 **O perigo era:** virar engenheiro defensivo gastando 2 semanas em fixes preventivos enquanto Laura fica sem Bulk Fill, enquanto Lucas continua digitando NF manualmente, enquanto a 6/6 chega e o que importava era estabilidade do CSV.
 
 **O caminho é:** consertar os 7 que importam (~2-3h), entregar o que Leo pediu (~6-8h), polir antes da promo (~4-6h). Total ~12-17h em 3 semanas. Sobra tempo para outros projetos.
+
+→ **NEXT:** Fase 0, item 0.2 — remover bloco `RESET_DATA` do `app-v2/scripts/railway-init.js` (5min, zero risco, reversível via Git).
